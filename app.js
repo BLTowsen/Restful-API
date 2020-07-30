@@ -4,14 +4,10 @@ require('dotenv/config');
 
 const app = express();
 
-//ROUTES
-app.get('/', (req, res) => {
-    res.send('We are on home');
-});
+//Import Routes
+const postsRoute = require('./routes/posts');
 
-app.get('/posts', (req, res) => {
-    res.send('We are on posts');
-});
+app.use('/posts', postsRoute);
 
 //Connect To DB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
