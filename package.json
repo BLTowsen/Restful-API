@@ -4,7 +4,7 @@
   "description": "Building a restful API using Node.js Express & MongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/BLTowsen/Restful-API/issues"
   },
-  "homepage": "https://github.com/BLTowsen/Restful-API#readme"
+  "homepage": "https://github.com/BLTowsen/Restful-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
 }
