@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
+//Fetch all the users
 router.get('/', async (req, res) => {
     try{
         const users = await User.find();
@@ -11,6 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Fetch a specific user
 router.get('/:postId', async (req, res) => {
     try{
         // i love you infinite amounts 
@@ -21,6 +23,7 @@ router.get('/:postId', async (req, res) => {
     }
 });
 
+//Add a user
 router.post('/', async (req, res) => {
     const user = new User({
         name: req.body.title
@@ -33,6 +36,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+//Delete a user
 router.delete('/:userId', async (req, res) => {
     try{
         const removedUser = await User.deleteOne({_id: req.params.postId});
@@ -42,6 +46,7 @@ router.delete('/:userId', async (req, res) => {
     }
 });
 
+//Update a user's information
 router.patch('/:postId', async (req, res) => {
     try{
         const updatedUser = await User.updateOne({_id: req.params.postId}, {$set: {title: req.body.title}});
