@@ -6,7 +6,7 @@ const UserSchema = mongoose.Schema({
         required: true
     },
     age: {
-        type: Int16Array,
+        type: Number,
         required: false
     },
     address: {
@@ -15,4 +15,4 @@ const UserSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
