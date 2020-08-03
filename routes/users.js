@@ -1,10 +1,45 @@
 const express = require('express');
-
 const router = express.Router();
+const User = require('../models/User');
 
-router.get('/', (req, res) => {
-    res.send("Users page");
-    res.end();
+router.get('/', async (req, res) => {
+    try{
+        const users = await User.find();
+        res.json(users);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+router.get('/:postId', async (req, res) => {
+    try{
+        // i love you infinite amounts 
+        const user = await User.findById(req.params.postId);
+        res.json(post);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+router.post('/', async (req, res) => {
+    const user = new User({
+        name: req.body.title
+    });
+    try{
+        const savedUser = await user.save();
+        res.json(savedPost);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+router.delete('/:userId', async (req, res) => {
+    try{
+        const removedUser = await User.deleteOne({_id: req.params.postId});
+        res.json({message: err});
+    }catch(err){
+        res.json({message: err});
+    }
 });
 
 module.exports = router;
