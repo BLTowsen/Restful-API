@@ -12,10 +12,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/specific', (req, res) => {
-    res.send('We are on specific post');
-    res.end();
-});
 
 //SUBMITS A POST
 router.post('/', async (req, res) => {
